@@ -58,15 +58,35 @@ test("compartir genera una imagen PNG de 1080×1920", async ({ page }) => {
   expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1080, 1920]);
 });
 
-test.describe("en Android", () => {
-  test.use({ userAgent: "Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Mobile Safari/537.36" });
+const ANDROID_UA = "Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Mobile Safari/537.36";
+const IPHONE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1";
 
-  test("el selector no filtra por imágenes y explica cómo recuperar el GPS", async ({ page }) => {
+test.describe("en Android", () => {
+  test.use({ userAgent: ANDROID_UA });
+
+  test("avisa antes de subir y explica la foto sin ubicación", async ({ page }) => {
     await page.goto("/es");
-    await expect(page.getByTestId("file-input")).not.toHaveAttribute("accept");
+    await expect(page.getByRole("note")).toContainText("En Android, el sistema quita la ubicación");
     await page.getByTestId("file-input").setInputFiles("e2e/fixtures/sin-gps.jpg");
-    await expect(page.getByText("Android ocultó la ubicación de tus fotos")).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByText("Android quitó la ubicación de tus fotos")).toBeVisible({ timeout: 20_000 });
   });
+});
+
+test.describe("en iPhone", () => {
+  test.use({ userAgent: IPHONE_UA });
+
+  test("indica activar Ubicación en el selector", async ({ page }) => {
+    await page.goto("/es");
+    await expect(page.getByRole("note")).toContainText("toca «Opciones» arriba y activa «Ubicación»");
+    await page.getByTestId("file-input").setInputFiles("e2e/fixtures/sin-gps.jpg");
+    await expect(page.getByText("Tus fotos llegaron sin ubicación")).toBeVisible({ timeout: 20_000 });
+  });
+});
+
+test("en computador no hay aviso de celular", async ({ page }) => {
+  await page.goto("/es");
+  await expect(page.getByRole("heading", { name: "Tus fotos, en el mapa" })).toBeVisible();
+  await expect(page.getByRole("note")).toHaveCount(0);
 });
 
 test("muestra los kilómetros recorridos", async ({ page }) => {

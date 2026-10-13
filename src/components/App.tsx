@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { dictionaries, fill, type Locale } from "@/i18n/dict";
 import { MAX_PHOTOS } from "@/lib/intake";
 import { usePhotos } from "@/lib/usePhotos";
-import { useIsAndroid } from "@/lib/useIsAndroid";
+import { usePlatform } from "@/lib/usePlatform";
 import { Home } from "./Home";
 import { Icon } from "./Icon";
 import { ShareDialog } from "./ShareDialog";
@@ -36,7 +36,7 @@ export function App({ lang }: { lang: Locale }) {
 
   const choose = () => input.current?.click();
   const other = lang === "es" ? "en" : "es";
-  const isAndroid = useIsAndroid();
+  const platform = usePlatform();
 
   return (
     <div
@@ -51,8 +51,7 @@ export function App({ lang }: { lang: Locale }) {
       <input
         ref={input}
         type="file"
-        // En Android, pedir solo imágenes abre la galería, que borra el GPS; sin filtro aparece «Archivos».
-        accept={isAndroid ? undefined : "image/*,.heic,.heif"}
+        accept="image/*,.heic,.heif"
         multiple
         hidden
         data-testid="file-input"
@@ -110,12 +109,12 @@ export function App({ lang }: { lang: Locale }) {
       {showResults ? (
         <main className="grid flex-1 gap-4 px-4 pb-2 sm:px-6 lg:min-h-0 lg:grid-cols-[minmax(0,1fr)_380px]">
           <div className="h-[60vh] lg:h-full lg:min-h-0">
-            <MapView photos={photos} t={t} lang={lang} android={isAndroid} />
+            <MapView photos={photos} t={t} lang={lang} platform={platform} />
           </div>
           <SummaryPanel photos={photos} t={t} lang={lang} />
         </main>
       ) : (
-        <Home t={t} onChoose={choose} onSamples={loadSamples} onFiles={add} busy={!!progress} progressText={progressText} />
+        <Home t={t} platform={platform} onChoose={choose} onSamples={loadSamples} onFiles={add} busy={!!progress} progressText={progressText} />
       )}
 
       <footer className="px-4 py-2 text-center text-xs text-muted sm:px-6">

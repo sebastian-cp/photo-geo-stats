@@ -19,6 +19,12 @@ const PATHS = {
       <path d="M12 11v5M12 8h.01" />
     </>
   ),
+  alert: (
+    <>
+      <path d="M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+      <path d="M12 9v4M12 17h.01" />
+    </>
+  ),
   reset: <path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4" />,
   upload: <path d="M12 16V4m0 0L7 9m5-5 5 5M4 20h16" />,
   plus: <path d="M12 5v14M5 12h14" />,

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { fill, type Dict } from "@/i18n/dict";
 import { MAX_PHOTOS } from "@/lib/intake";
+import type { Platform } from "@/lib/usePlatform";
 import { Icon } from "./Icon";
 
 // Posición, duración y retraso de cada foto del fondo, repartidas para que no se amontonen.
@@ -19,9 +20,9 @@ const FLOATERS = [
   { n: 16, left: 74, dur: 32, delay: -5, top: 85 },
 ];
 
-type Props = { t: Dict; onChoose: () => void; onSamples: () => void; onFiles: (f: File[]) => void; busy: boolean; progressText?: string };
+type Props = { t: Dict; platform: Platform; onChoose: () => void; onSamples: () => void; onFiles: (f: File[]) => void; busy: boolean; progressText?: string };
 
-export function Home({ t, onChoose, onSamples, onFiles, busy, progressText }: Props) {
+export function Home({ t, platform, onChoose, onSamples, onFiles, busy, progressText }: Props) {
   const [over, setOver] = useState(false);
 
   return (
@@ -77,6 +78,13 @@ export function Home({ t, onChoose, onSamples, onFiles, busy, progressText }: Pr
           <Icon name="lock" className="h-3.5 w-3.5" />
           {t.home.privacy}
         </p>
+
+        {platform !== "desktop" && (
+          <p role="note" className="mt-4 flex items-start gap-2 rounded-2xl border border-accent/25 bg-accent-soft/80 px-3.5 py-3 text-left text-xs leading-relaxed text-ink">
+            <Icon name="alert" className="mt-0.5 h-4 w-4 text-accent" />
+            <span>{t.mobile[platform].notice}</span>
+          </p>
+        )}
       </section>
     </main>
   );

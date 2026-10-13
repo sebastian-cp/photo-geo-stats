@@ -18,6 +18,18 @@ const es = {
     privacy: "Tus fotos no salen de tu navegador",
     limit: "Hasta {max} fotos · JPG, HEIC, PNG o WebP",
   },
+  mobile: {
+    android: {
+      notice: "En Android, el sistema quita la ubicación a las fotos que subes desde el navegador. Verás tus cámaras y ajustes, pero el mapa quedará vacío. Para el mapa, súbelas desde un computador.",
+      lostTitle: "Android quitó la ubicación de tus fotos",
+      lostTip: "Por privacidad, Android borra el GPS de las fotos que se suben desde el navegador. Para verlas en el mapa, súbelas desde un computador (pásalas por cable, no por WhatsApp ni Bluetooth).",
+    },
+    ios: {
+      notice: "En iPhone, al elegir las fotos toca «Opciones» arriba y activa «Ubicación». Si no, llegan sin GPS y no aparecerán en el mapa.",
+      lostTitle: "Tus fotos llegaron sin ubicación",
+      lostTip: "Vuelve a elegirlas y, en el selector de fotos, toca «Opciones» arriba y activa «Ubicación». Las fotos tomadas en el momento con la cámara siempre llegan sin GPS.",
+    },
+  },
   bar: { add: "Fotos", addLabel: "Agregar fotos", reset: "Empezar de nuevo", full: "Llegaste al máximo de {max} fotos" },
   progress: "Leyendo {done} de {total}…",
   panel: {
@@ -43,8 +55,6 @@ const es = {
   map: {
     empty: "Ninguna foto trae ubicación",
     emptyTip: "Activa la ubicación en la app de cámara de tu celular y vuelve a intentarlo con fotos originales (no reenviadas por WhatsApp).",
-    androidTitle: "Android ocultó la ubicación de tus fotos",
-    androidTip: "Al elegirlas desde la galería, Android borra el GPS por privacidad. Toca «+ Fotos», elige «Archivos» y busca tus fotos en DCIM › Camera: así llegan completas.",
     error: "No se pudo cargar el mapa",
     retry: "Reintentar",
     sea: "En el mar",
@@ -111,6 +121,18 @@ const en: Dict = {
     privacy: "Your photos never leave your browser",
     limit: "Up to {max} photos · JPG, HEIC, PNG or WebP",
   },
+  mobile: {
+    android: {
+      notice: "On Android, the system strips the location from photos uploaded through the browser. You'll see your cameras and settings, but the map will stay empty. For the map, upload them from a computer.",
+      lostTitle: "Android removed your photos' location",
+      lostTip: "For privacy, Android strips GPS from photos uploaded through the browser. To see them on the map, upload them from a computer (copy them by cable, not WhatsApp or Bluetooth).",
+    },
+    ios: {
+      notice: "On iPhone, when picking your photos tap «Options» at the top and turn on «Location». Otherwise they arrive without GPS and won't appear on the map.",
+      lostTitle: "Your photos arrived without location",
+      lostTip: "Pick them again and, in the photo picker, tap «Options» at the top and turn on «Location». Photos taken on the spot with the camera always arrive without GPS.",
+    },
+  },
   bar: { add: "Photos", addLabel: "Add photos", reset: "Start over", full: "You reached the {max} photo limit" },
   progress: "Reading {done} of {total}…",
   panel: {
@@ -136,8 +158,6 @@ const en: Dict = {
   map: {
     empty: "None of your photos has a location",
     emptyTip: "Turn on location in your phone's camera app and try again with original photos (not forwarded through WhatsApp).",
-    androidTitle: "Android hid your photos' location",
-    androidTip: "When picked from the gallery, Android strips GPS for privacy. Tap «+ Photos», choose «Files» and open DCIM › Camera: that way they arrive complete.",
     error: "The map couldn't load",
     retry: "Retry",
     sea: "At sea",

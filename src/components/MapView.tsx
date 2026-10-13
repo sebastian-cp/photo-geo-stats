@@ -7,6 +7,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { fill, type Dict } from "@/i18n/dict";
 import { formatShutter } from "@/lib/stats";
 import type { Photo } from "@/lib/types";
+import type { Platform } from "@/lib/usePlatform";
 
 // Teselas gratuitas y sin token de OpenFreeMap; solo revelan la zona que se está mirando, no las fotos.
 const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
@@ -33,9 +34,9 @@ function paintSunset(map: MlMap) {
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
-type Props = { photos: Photo[]; t: Dict; lang: string; android?: boolean };
+type Props = { photos: Photo[]; t: Dict; lang: string; platform: Platform };
 
-export default function MapView({ photos, t, lang, android }: Props) {
+export default function MapView({ photos, t, lang, platform }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<MlMap | null>(null);
   const markers = useRef<Marker[]>([]);
@@ -166,9 +167,9 @@ export default function MapView({ photos, t, lang, android }: Props) {
       )}
       {!failed && photos.length > 0 && located.length === 0 && (
         <div className="absolute inset-x-6 top-6 mx-auto max-w-md rounded-2xl glass p-4 text-center">
-          {/* Si traen datos de cámara pero ninguna ubicación en Android, lo más probable es que la galería borró el GPS. */}
-          <p className="font-semibold">{android && photos.some((p) => p.camera) ? t.map.androidTitle : t.map.empty}</p>
-          <p className="mt-1 text-sm text-muted">{android && photos.some((p) => p.camera) ? t.map.androidTip : t.map.emptyTip}</p>
+          {/* En celular lo más probable es que el sistema haya borrado el GPS al entregar la foto al navegador. */}
+          <p className="font-semibold">{platform === "desktop" ? t.map.empty : t.mobile[platform].lostTitle}</p>
+          <p className="mt-1 text-sm text-muted">{platform === "desktop" ? t.map.emptyTip : t.mobile[platform].lostTip}</p>
         </div>
       )}
     </div>
