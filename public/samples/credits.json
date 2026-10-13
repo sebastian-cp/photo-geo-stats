@@ -1,0 +1,182 @@
+[
+  {
+    "file": "sample-01.jpg",
+    "place": "Valparaíso",
+    "title": "File:Templeman y Almirante Montt, Valparaíso.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Templeman_y_Almirante_Montt%2C_Valpara%C3%ADso.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Templeman_y_Almirante_Montt,_Valpara%C3%ADso.jpg",
+    "license": "CC BY 3.0",
+    "artist": "Till Niermann"
+  },
+  {
+    "file": "sample-02.jpg",
+    "place": "San Pedro de Atacama",
+    "title": "File:FCAB EMD GT22CU-3 San Pedro - Ascotan.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:FCAB_EMD_GT22CU-3_San_Pedro_-_Ascotan.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Kabelleger / David Gubler"
+  },
+  {
+    "file": "sample-03.jpg",
+    "place": "Buenos Aires",
+    "title": "File:Buenos Aires Obelisk-20110509-RM-104316.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Buenos_Aires_Obelisk-20110509-RM-104316.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Buenos_Aires_Obelisk-20110509-RM-104316.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Ermell"
+  },
+  {
+    "file": "sample-04.jpg",
+    "place": "Machu Picchu",
+    "title": "File:Genealogie des empereurs incas du Machu Picchu (Aguas Calientes).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Genealogie_des_empereurs_incas_du_Machu_Picchu_%28Aguas_Calientes%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Genealogie_des_empereurs_incas_du_Machu_Picchu_(Aguas_Calientes).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Pierre André Leclercq"
+  },
+  {
+    "file": "sample-05.jpg",
+    "place": "Mexico City",
+    "title": "File:Cycling in Mexico City - La Palma Panaderia y Bizcoheria.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Cycling_in_Mexico_City_-_La_Palma_Panaderia_y_Bizcoheria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Cycling_in_Mexico_City_-_La_Palma_Panaderia_y_Bizcoheria.jpg",
+    "license": "CC BY-SA 2.0",
+    "artist": "ted bongiovanni"
+  },
+  {
+    "file": "sample-06.jpg",
+    "place": "New York City street",
+    "title": "File:New York City (New York, USA), Wall Street -- 2012 -- 6614.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/New_York_City_%28New_York%2C_USA%29%2C_Wall_Street_--_2012_--_6614.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:New_York_City_(New_York,_USA),_Wall_Street_--_2012_--_6614.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Dietmar Rabich"
+  },
+  {
+    "file": "sample-07.jpg",
+    "place": "Reykjavik",
+    "title": "File:2019-08-13 02 Purple Sandpiper (Calidris maritima), Reykjavik Iceland.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/2019-08-13_02_Purple_Sandpiper_%28Calidris_maritima%29%2C_Reykjavik_Iceland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:2019-08-13_02_Purple_Sandpiper_(Calidris_maritima),_Reykjavik_Iceland.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Gordon Leggett"
+  },
+  {
+    "file": "sample-08.jpg",
+    "place": "Lisbon tram",
+    "title": "File:Lisbon BW 2018-10-03 13-25-22.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Lisbon_BW_2018-10-03_13-25-22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Lisbon_BW_2018-10-03_13-25-22.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Berthold Werner"
+  },
+  {
+    "file": "sample-09.jpg",
+    "place": "Barcelona",
+    "title": "File:Plaça Sagrada Família, house 1 to 7 Barcelona, Spain 1.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Pla%C3%A7a_Sagrada_Fam%C3%ADlia%2C_house_1_to_7_Barcelona%2C_Spain_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Pla%C3%A7a_Sagrada_Fam%C3%ADlia,_house_1_to_7_Barcelona,_Spain_1.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Reda Kerbush"
+  },
+  {
+    "file": "sample-10.jpg",
+    "place": "Rome",
+    "title": "File:Rome (Italy), Piazza della Rotonda, Hub of a Coach -- 2013 -- 10.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Rome_%28Italy%29%2C_Piazza_della_Rotonda%2C_Hub_of_a_Coach_--_2013_--_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Rome_(Italy),_Piazza_della_Rotonda,_Hub_of_a_Coach_--_2013_--_10.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Dietmar Rabich"
+  },
+  {
+    "file": "sample-11.jpg",
+    "place": "Amsterdam canal",
+    "title": "File:Water reflection of canal houses at blue hour in Damrak Amsterdam the Netherlands.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Basile Morin"
+  },
+  {
+    "file": "sample-12.jpg",
+    "place": "Istanbul",
+    "title": "File:Streets of Istanbul 69.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Streets_of_Istanbul_69.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Streets_of_Istanbul_69.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Slyronit"
+  },
+  {
+    "file": "sample-13.jpg",
+    "place": "Marrakesh",
+    "title": "File:Arabian shepherd selling sheep in Ramadan month (street of Marrakesh).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Arabian_shepherd_selling_sheep_in_Ramadan_month_%28street_of_Marrakesh%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Arabian_shepherd_selling_sheep_in_Ramadan_month_(street_of_Marrakesh).jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Petar Milošević"
+  },
+  {
+    "file": "sample-14.jpg",
+    "place": "Cape Town",
+    "title": "File:Cape Town (ZA), Sea Point, Nachtansicht -- 2024 -- 1867-70 - 2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Cape_Town_%28ZA%29%2C_Sea_Point%2C_Nachtansicht_--_2024_--_1867-70_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Sea_Point,_Nachtansicht_--_2024_--_1867-70_-_2.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Dietmar Rabich"
+  },
+  {
+    "file": "sample-15.jpg",
+    "place": "Kyoto",
+    "title": "File:Illuminated white and purple facade of the office building Rohm Semiconductor in Kyoto, Japan.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Illuminated_white_and_purple_facade_of_the_office_building_Rohm_Semiconductor_in_Kyoto%2C_Japan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Illuminated_white_and_purple_facade_of_the_office_building_Rohm_Semiconductor_in_Kyoto,_Japan.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Basile Morin"
+  },
+  {
+    "file": "sample-16.jpg",
+    "place": "Tokyo street",
+    "title": "File:Colorful neon street signs in Kabukichō, Shinjuku, Tokyo.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Colorful_neon_street_signs_in_Kabukich%C5%8D%2C_Shinjuku%2C_Tokyo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Colorful_neon_street_signs_in_Kabukich%C5%8D,_Shinjuku,_Tokyo.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Basile Morin"
+  },
+  {
+    "file": "sample-17.jpg",
+    "place": "Bangkok",
+    "title": "File:Statue of Yaksha supporting one of the Two Golden Chedi of Wat Phra Kaew, Bangkok, Thailand.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Statue_of_Yaksha_supporting_one_of_the_Two_Golden_Chedi_of_Wat_Phra_Kaew%2C_Bangkok%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Statue_of_Yaksha_supporting_one_of_the_Two_Golden_Chedi_of_Wat_Phra_Kaew,_Bangkok,_Thailand.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Basile Morin"
+  },
+  {
+    "file": "sample-18.jpg",
+    "place": "Sydney Opera House",
+    "title": "File:Sydney (AU), Opera House -- 2019 -- 3054.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Sydney_%28AU%29%2C_Opera_House_--_2019_--_3054.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Opera_House_--_2019_--_3054.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Dietmar Rabich"
+  },
+  {
+    "file": "sample-19.jpg",
+    "place": "Queenstown New Zealand",
+    "title": "File:Photograph of Queenstown Gardens in New Zealand.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Photograph_of_Queenstown_Gardens_in_New_Zealand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Photograph_of_Queenstown_Gardens_in_New_Zealand.jpg",
+    "license": "CC BY-SA 4.0",
+    "artist": "Amyrebecca30"
+  },
+  {
+    "file": "sample-20.jpg",
+    "place": "Patagonia",
+    "title": "File:Patagonia picnic table.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Patagonia_picnic_table.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "page": "https://commons.wikimedia.org/wiki/File:Patagonia_picnic_table.jpg",
+    "license": "CC BY 4.0",
+    "artist": "Citynoise"
+  }
+]

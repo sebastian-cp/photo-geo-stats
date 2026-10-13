@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* Paleta Atardecer */
+@theme {
+  --color-peach: #ffe8d6;
+  --color-rose: #fbd5e0;
+  --color-lavender: #e3dcff;
+  --color-ink: #3a2340;
+  --color-muted: #7a6380;
+  --color-accent: #f0643c;
+  --color-accent-2: #e2589a;
+  --color-accent-soft: #fde6dc;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --sunset: linear-gradient(160deg, #ffe8d6 0%, #fbd5e0 50%, #e3dcff 100%);
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-line: rgba(255, 255, 255, 0.9);
+  --shadow: 0 18px 50px rgba(120, 60, 90, 0.16);
+  color-scheme: light;
+}
+
+body {
+  background: var(--sunset) fixed;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.accent-gradient {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+}
+
+/* Fondo del inicio: fotos tipo polaroid que suben lento */
+.floater {
+  position: absolute;
+  bottom: -220px;
+  width: clamp(110px, 14vw, 170px);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 5px solid #fff;
+  border-bottom-width: 18px;
+  border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(120, 60, 90, 0.22);
+  opacity: 0.85;
+  animation: drift var(--dur, 26s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes drift {
+  from { transform: translateY(0) rotate(var(--r1, -6deg)); }
+  to { transform: translateY(calc(-100vh - 260px)) rotate(var(--r2, 5deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floater { animation: none; bottom: auto; top: var(--still-top, 20%); }
+}
+
+/* Marcadores del mapa */
+.pin-photo {
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  border: 3px solid #fff;
+  background: var(--color-accent-soft) center / cover no-repeat;
+  box-shadow: 0 4px 12px rgba(120, 60, 90, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.pin-photo:hover, .pin-photo:focus-visible { transform: scale(1.12); outline: none; }
+.pin-cluster {
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  border: 3px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  box-shadow: 0 4px 14px rgba(240, 100, 60, 0.45);
+  cursor: pointer;
+}
+
+.maplibregl-popup-content {
+  padding: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(120, 60, 90, 0.28) !important;
+  font-family: var(--font-sans);
+}
+.maplibregl-popup-close-button {
+  font-size: 18px;
+  width: 26px;
+  height: 26px;
+  margin: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: var(--color-ink);
+}
+
+/* Scroll interno del panel: barra fina que no toca los bordes redondeados
+   y un desvanecido abajo que avisa que hay más contenido. */
+@media (min-width: 1024px) {
+  .panel-scroll {
+    scrollbar-gutter: stable;
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+  }
+}
+.panel-scroll::-webkit-scrollbar { width: 6px; }
+.panel-scroll::-webkit-scrollbar-track { background: transparent; margin: 8px 0 20px; }
+.panel-scroll::-webkit-scrollbar-thumb { background: rgba(240, 100, 60, 0.3); border-radius: 9999px; }
+.panel-scroll::-webkit-scrollbar-thumb:hover { background: rgba(240, 100, 60, 0.55); }
+@supports not selector(::-webkit-scrollbar) {
+  .panel-scroll { scrollbar-width: thin; scrollbar-color: rgba(240, 100, 60, 0.35) transparent; }
+}
