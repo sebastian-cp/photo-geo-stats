@@ -9,7 +9,7 @@ import { Icon } from "./Icon";
 function Kpi({ value, label }: { value: number | string; label: string }) {
   return (
     <div>
-      <div className="text-2xl font-bold tracking-tight">{value}</div>
+      <div className="text-xl font-bold tracking-tight sm:text-2xl">{value}</div>
       <div className="text-xs text-muted">{label}</div>
     </div>
   );
@@ -53,7 +53,7 @@ function Histogram({ title, top, buckets, t }: { title: string; top?: string; bu
 
 const DAY_ICONS: Record<DayPart, string> = { morning: "🌤️", afternoon: "☀️", golden: "🌅", night: "🌙" };
 
-export function SummaryPanel({ photos, t }: { photos: Photo[]; t: Dict }) {
+export function SummaryPanel({ photos, t, lang }: { photos: Photo[]; t: Dict; lang: string }) {
   const s = useMemo(() => computeStats(photos, t.panel.other, t.panel.unknown), [photos, t]);
   const [showInfo, setShowInfo] = useState(false);
   const totalDay = Object.values(s.dayParts).reduce((a, b) => a + b, 0) || 1;
@@ -63,10 +63,11 @@ export function SummaryPanel({ photos, t }: { photos: Photo[]; t: Dict }) {
       {/* El título y las cifras quedan fijos; solo el detalle hace scroll. */}
       <div className="border-b border-ink/10 px-5 pt-5 pb-4">
         <h2 className="text-lg font-bold">{t.panel.title}</h2>
-        <div className="mt-3 grid grid-cols-3 gap-3">
+        <div className="mt-3 grid grid-cols-4 gap-2">
           <Kpi value={s.total} label={t.panel.photos} />
           <Kpi value={s.countries.length} label={t.panel.countries} />
           <Kpi value={s.cities} label={t.panel.cities} />
+          <Kpi value={s.km.toLocaleString(lang)} label={t.panel.km} />
         </div>
       </div>
 

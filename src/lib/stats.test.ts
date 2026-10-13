@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeStats, dayPart, formatShutter, histogram, mode } from "./stats";
+import { computeStats, dayPart, formatShutter, histogram, mode, travelKm } from "./stats";
 import type { Photo } from "./types";
 
 const photo = (p: Partial<Photo>): Photo => ({ id: Math.random().toString(), name: "x.jpg", ...p });
@@ -57,5 +57,34 @@ describe("computeStats", () => {
   it("agrupa cámaras sobrantes en Otras", () => {
     const many = ["A", "B", "C", "D", "E", "F"].map((camera) => photo({ camera }));
     expect(computeStats(many).cameras.at(-1)).toMatchObject({ label: "Otras", count: 2 });
+  });
+});
+
+describe("travelKm", () => {
+  it("suma la distancia entre fotos en orden cronológico", () => {
+    // Santiago → Valparaíso → Santiago, desordenadas en la lista: ~100 km por tramo.
+    const photos = [
+      photo({ lat: -33.45, lng: -70.66, takenAt: "2024-01-03T10:00" }),
+      photo({ lat: -33.45, lng: -70.66, takenAt: "2024-01-01T10:00" }),
+      photo({ lat: -33.04, lng: -71.62, takenAt: "2024-01-02T10:00" }),
+    ];
+    const km = travelKm(photos);
+    expect(km).toBeGreaterThan(190);
+    expect(km).toBeLessThan(210);
+  });
+
+  it("sin al menos dos fotos con ubicación es 0", () => {
+    expect(travelKm([photo({ lat: 1, lng: 1 }), photo({})])).toBe(0);
+  });
+
+  it("computeStats lo incluye", () => {
+    expect(computeStats([photo({ lat: 0, lng: 0 }), photo({ lat: 0, lng: 1 })]).km).toBe(111);
+  });
+});
+
+describe("tramos de velocidad", () => {
+  it("1/50 cae en la barra 1/60, la más cercana", () => {
+    const b = computeStats([photo({ exposure: 1 / 50 })]).shutter.buckets;
+    expect(b.find((x) => x.count)?.label).toBe("1/60");
   });
 });

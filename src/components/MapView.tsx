@@ -33,9 +33,9 @@ function paintSunset(map: MlMap) {
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
-type Props = { photos: Photo[]; t: Dict; lang: string };
+type Props = { photos: Photo[]; t: Dict; lang: string; android?: boolean };
 
-export default function MapView({ photos, t, lang }: Props) {
+export default function MapView({ photos, t, lang, android }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<MlMap | null>(null);
   const markers = useRef<Marker[]>([]);
@@ -166,8 +166,9 @@ export default function MapView({ photos, t, lang }: Props) {
       )}
       {!failed && photos.length > 0 && located.length === 0 && (
         <div className="absolute inset-x-6 top-6 mx-auto max-w-md rounded-2xl glass p-4 text-center">
-          <p className="font-semibold">{t.map.empty}</p>
-          <p className="mt-1 text-sm text-muted">{t.map.emptyTip}</p>
+          {/* Si traen datos de cámara pero ninguna ubicación en Android, lo más probable es que la galería borró el GPS. */}
+          <p className="font-semibold">{android && photos.some((p) => p.camera) ? t.map.androidTitle : t.map.empty}</p>
+          <p className="mt-1 text-sm text-muted">{android && photos.some((p) => p.camera) ? t.map.androidTip : t.map.emptyTip}</p>
         </div>
       )}
     </div>

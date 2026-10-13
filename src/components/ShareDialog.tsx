@@ -96,7 +96,7 @@ export function ShareDialog({ photos, t, lang, onClose }: Props) {
       ref={dialog}
       onClose={onClose}
       onClick={(e) => e.target === dialog.current && dialog.current.close()}
-      className="inset-0 m-0 h-auto max-h-none w-full max-w-none overflow-hidden bg-[#fff8f4] p-0 text-ink backdrop:bg-ink/40 backdrop:backdrop-blur-sm md:m-auto md:h-auto md:max-h-[95dvh] md:w-[min(820px,95vw)] md:rounded-3xl md:border md:border-white md:shadow-2xl"
+      className="inset-0 m-0 h-auto max-h-none w-full max-w-none overflow-hidden bg-[#fff8f4] p-0 text-ink backdrop:bg-ink/40 backdrop:backdrop-blur-sm md:m-auto md:h-fit md:max-h-[95dvh] md:w-[min(820px,95vw)] md:rounded-3xl md:border md:border-white md:shadow-2xl"
       aria-labelledby="share-title"
     >
       <div className="flex h-full flex-col gap-3 p-4 md:h-auto md:flex-row md:gap-6 md:p-6">

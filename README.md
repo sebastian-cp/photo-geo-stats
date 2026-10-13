@@ -3,6 +3,8 @@
 **Suelta tus fotos y descubre dónde las tomaste y con qué cámara.**
 Todo ocurre en tu navegador: tus fotos no se suben a ningún servidor.
 
+**[Pruébala en vivo → photo-geo-stats.vercel.app](https://photo-geo-stats.vercel.app)**
+
 ## Qué hace
 
 - 🗺️ **Mapa de tus fotos** a partir del GPS de su EXIF, con miniaturas como pines y grupos para las fotos cercanas.

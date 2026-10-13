@@ -57,3 +57,20 @@ test("compartir genera una imagen PNG de 1080×1920", async ({ page }) => {
   // Ancho y alto vienen en el encabezado IHDR del PNG.
   expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1080, 1920]);
 });
+
+test.describe("en Android", () => {
+  test.use({ userAgent: "Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Mobile Safari/537.36" });
+
+  test("el selector no filtra por imágenes y explica cómo recuperar el GPS", async ({ page }) => {
+    await page.goto("/es");
+    await expect(page.getByTestId("file-input")).not.toHaveAttribute("accept");
+    await page.getByTestId("file-input").setInputFiles("e2e/fixtures/sin-gps.jpg");
+    await expect(page.getByText("Android ocultó la ubicación de tus fotos")).toBeVisible({ timeout: 20_000 });
+  });
+});
+
+test("muestra los kilómetros recorridos", async ({ page }) => {
+  await page.goto("/es");
+  await page.getByRole("button", { name: "Probar con ejemplos" }).click();
+  await expect(summary(page).getByText("km recorridos")).toBeVisible({ timeout: 30_000 });
+});

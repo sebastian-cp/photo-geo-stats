@@ -1,3 +1,4 @@
+import { distanceKm } from "./geocode";
 import type { Photo } from "./types";
 
 export type Bucket = { label: string; count: number };
@@ -7,6 +8,8 @@ export type DayPart = "morning" | "afternoon" | "golden" | "night";
 export type Stats = {
   total: number;
   withGps: number;
+  /** Kilómetros recorridos uniendo las fotos en orden cronológico. */
+  km: number;
   countries: string[];
   cities: number;
   cameras: Share[];
@@ -53,6 +56,21 @@ export function dayPart(hour: number): DayPart {
   return "night";
 }
 
+/**
+ * Distancia total uniendo las fotos con ubicación en orden cronológico. Las fotos sin fecha
+ * van al final en el orden en que se cargaron.
+ */
+export function travelKm(photos: Photo[]) {
+  const located = photos
+    .filter((p) => p.lat != null && p.lng != null)
+    .map((p, i) => ({ p, i }))
+    .sort((a, b) => (a.p.takenAt ?? "~").localeCompare(b.p.takenAt ?? "~") || a.i - b.i)
+    .map(({ p }) => p);
+  let km = 0;
+  for (let i = 1; i < located.length; i++) km += distanceKm(located[i - 1].lat!, located[i - 1].lng!, located[i].lat!, located[i].lng!);
+  return Math.round(km);
+}
+
 const OTHER_CAMERAS = 4;
 
 export function computeStats(photos: Photo[], otherLabel = "Otras", unknownLabel = "Desconocida"): Stats {
@@ -81,6 +99,7 @@ export function computeStats(photos: Photo[], otherLabel = "Otras", unknownLabel
   return {
     total: photos.length,
     withGps: located.length,
+    km: travelKm(photos),
     countries,
     cities,
     cameras,
@@ -88,7 +107,8 @@ export function computeStats(photos: Photo[], otherLabel = "Otras", unknownLabel
     aperture: { top: mode(fs), buckets: histogram(fs, [2.8, 4, 5.6, 8, 11], ["<2.8", "2.8", "4", "5.6", "8", "11+"]) },
     shutter: {
       top: mode(ts),
-      buckets: histogram(ts, [1 / 1000, 1 / 250, 1 / 60, 1 / 15], ["1/1000+", "1/250", "1/60", "1/15", "≥1/15"]),
+      // Límites en la media geométrica entre valores estándar: cada foto cae en la barra con el valor más cercano.
+      buckets: histogram(ts, [1 / 500, 1 / 125, 1 / 30, 1 / 8], ["1/1000+", "1/250", "1/60", "1/15", "≥1/8"]),
     },
     dayParts,
     noGps: photos.filter((p) => p.lat == null || p.lng == null),

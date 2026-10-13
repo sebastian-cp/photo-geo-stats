@@ -16,7 +16,7 @@ export const CARD_SIZE: Record<CardFormat, { w: number; h: number }> = {
   post: { w: 360, h: 450 },
 };
 
-export const SITE = "github.com/sebastian-cp/photo-geo-stats";
+export const SITE = "photo-geo-stats.vercel.app";
 
 const PROFILE_ICON: Record<Profile["kind"], string> = {
   golden: "🌅",
@@ -27,6 +27,10 @@ const PROFILE_ICON: Record<Profile["kind"], string> = {
   globetrotter: "🧭",
   explorer: "📷",
 };
+
+/** 137251 → "137 mil" (es) o "137K" (en): en la tarjeta las cuatro cifras comparten el mismo ancho. */
+const compactKm = (km: number, lang: string) =>
+  new Intl.NumberFormat(lang, { notation: km >= 10000 ? "compact" : "standard", maximumFractionDigits: 0 }).format(km);
 
 /** Hasta 4 fotos con miniatura, una por país primero para que el collage muestre variedad. */
 export function pickCollage(photos: Photo[], max = 4) {
@@ -126,14 +130,15 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(function ShareCard({ 
         </div>
       )}
 
-      <div className={`grid grid-cols-3 rounded-2xl bg-white/65 text-center ${story ? "mt-6 py-3" : "mt-4 py-2"}`}>
+      <div className={`flex justify-evenly rounded-2xl bg-white/65 text-center ${story ? "mt-6 py-3" : "mt-4 py-2"}`}>
         {[
           [stats.total, t.panel.photos],
           [stats.countries.length, t.panel.countries],
           [stats.cities, t.panel.cities],
+          [compactKm(stats.km, lang), "km"],
         ].map(([v, label]) => (
           <div key={label}>
-            <div className="text-[22px] leading-none font-extrabold">{v}</div>
+            <div className="text-[20px] leading-none font-extrabold whitespace-nowrap">{v}</div>
             <div className="mt-1 text-[10px] text-muted">{label}</div>
           </div>
         ))}

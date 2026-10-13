@@ -25,6 +25,7 @@ const es = {
     photos: "fotos",
     countries: "países",
     cities: "ciudades",
+    km: "km recorridos",
     cameras: "Cámaras",
     technique: "Técnica",
     iso: "ISO",
@@ -42,6 +43,8 @@ const es = {
   map: {
     empty: "Ninguna foto trae ubicación",
     emptyTip: "Activa la ubicación en la app de cámara de tu celular y vuelve a intentarlo con fotos originales (no reenviadas por WhatsApp).",
+    androidTitle: "Android ocultó la ubicación de tus fotos",
+    androidTip: "Al elegirlas desde la galería, Android borra el GPS por privacidad. Toca «+ Fotos», elige «Archivos» y busca tus fotos en DCIM › Camera: así llegan completas.",
     error: "No se pudo cargar el mapa",
     retry: "Reintentar",
     sea: "En el mar",
@@ -115,6 +118,7 @@ const en: Dict = {
     photos: "photos",
     countries: "countries",
     cities: "cities",
+    km: "km traveled",
     cameras: "Cameras",
     technique: "Technique",
     iso: "ISO",
@@ -132,6 +136,8 @@ const en: Dict = {
   map: {
     empty: "None of your photos has a location",
     emptyTip: "Turn on location in your phone's camera app and try again with original photos (not forwarded through WhatsApp).",
+    androidTitle: "Android hid your photos' location",
+    androidTip: "When picked from the gallery, Android strips GPS for privacy. Tap «+ Photos», choose «Files» and open DCIM › Camera: that way they arrive complete.",
     error: "The map couldn't load",
     retry: "Retry",
     sea: "At sea",
